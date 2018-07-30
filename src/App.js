@@ -29,7 +29,6 @@ class Grid extends Component {
       x: this.props.x,
       y: this.props.y,
       board: new Board(this.props.x, this.props.y),
-      paused: false,
       speed: 250,
       timer: undefined
     }
@@ -100,7 +99,9 @@ class Grid extends Component {
     return (
       <div>
         <button onClick={() => this.adjustSpeed(this.state.speed + 125)} style={{marginLeft: '10px'}}>slower</button> | 
-        <button onClick={this.toggleTimer}>timer</button> | 
+        <button onClick={this.toggleTimer}>
+        {this.state.timer === undefined ? '> play' : '= pause'}
+        </button> | 
         <button onClick={() => this.adjustSpeed(this.state.speed - 125)} style={{marginRight: '10px'}}>faster</button>
         <div className="grid">
           {rows}

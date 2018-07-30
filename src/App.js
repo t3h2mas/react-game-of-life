@@ -38,6 +38,7 @@ class Grid extends Component {
     this.stopTimer = this.stopTimer.bind(this)
     this.toggleTimer = this.toggleTimer.bind(this)
     this.toggleCell = this.toggleCell.bind(this)
+    this.clear = this.clear.bind(this)
   }
 
   componentDidMount () {
@@ -92,6 +93,12 @@ class Grid extends Component {
     this.setState({board: next})
   }
 
+  clear() {
+    this.setState({
+      board: new Board(this.state.x, this.state.y)
+    })
+  }
+
   render() {
     //ProcessBoard(this.state.board)
     //let cells = this.state.board.map(i => i.map(j => <CCell alive={j} />))
@@ -105,6 +112,9 @@ class Grid extends Component {
         <button onClick={() => this.adjustSpeed(this.state.speed - 125)} style={{marginRight: '10px'}}>faster</button>
         <div className="grid">
           {rows}
+        </div>
+        <div>
+          <button onClick={this.clear}>clear board</button>
         </div>
       </div>
     )

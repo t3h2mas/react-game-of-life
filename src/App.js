@@ -114,6 +114,12 @@ class Grid extends Component {
           {rows}
         </div>
         <div>
+          draw delay 
+          <div>
+            {this.state.speed} ms
+          </div>
+        </div>
+        <div>
           <button onClick={this.clear}>clear board</button>
         </div>
       </div>

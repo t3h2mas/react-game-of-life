@@ -110,7 +110,7 @@ class Grid extends Component {
         {this.state.timer === undefined ? '> play' : '= pause'}
         </button> | 
         <button onClick={() => this.adjustSpeed(this.state.speed - 125)} style={{marginRight: '10px'}}>faster</button>
-        <div className="grid">
+        <div className={'grid' + (this.state.timer === undefined ? ' paused' : '')}>
           {rows}
         </div>
         <div>
